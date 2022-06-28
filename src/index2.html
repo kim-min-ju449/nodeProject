@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* Google Web Fonts CDN */
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.5em;
+            margin: 0;
+            font-weight: 300;
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .tab-inner {
+            /*border: 1px solid red;*/
+            width: 300px;
+            height: 350px;
+            position: relative;
+        }
+
+        input[name=tabmenu] {
+            display: none;
+        }
+
+        .content {
+            /*display: none;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+
+        .btn {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 10px;
+        }
+    
+
+        .btn label {
+            background-color: lightgray;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[id=tab1]:checked~.slide1,
+        input[id=tab2]:checked~.slide2,
+        input[id=tab3]:checked~.slide3 {
+            /*  display: block;*/
+            opacity: 1;
+            visibility: visible;
+        }
+
+        input[id=tab1]:checked~.btn label[for=tab1],
+        input[id=tab2]:checked~.btn label[for=tab2],
+        input[id=tab3]:checked~.btn label[for=tab3] {
+            background-color: crimson;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="tab-inner">
+
+        <input type="radio" name="tabmenu" id="tab1" checked>
+        <input type="radio" name="tabmenu" id="tab2">
+        <input type="radio" name="tabmenu" id="tab3">
+
+        <div class="content slide1">
+            <a href="#none1"><img src="https://cdn.pixabay.com/photo/2017/07/28/14/28/macarons-2548818_1280.jpg" width="100%"></a>
+        </div>
+        <div class="content slide2">
+            <a href="#none2"><img src="https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg" width="400px"></a>
+        </div>
+        <div class="content slide3">
+            <a href="#none3"><img src="https://cdn.pixabay.com/photo/2019/09/11/21/03/dessert-4469955_1280.jpg" width="400px"></a>
+        </div>
+
+        <div class="btn">
+            <label for="tab1"></label>
+            <label for="tab2"></label>
+            <label for="tab3"></label>
+        </div>
+
+    </div>
+</body>
+
+</html>

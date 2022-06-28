@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const template = require('./lib/template.js');
@@ -18,7 +19,7 @@ app.get('/', function (req, res) {
         // 게시글의 목록
         const list = template.List(filelist);
         const html = template.HTML(title, list, description
-            , `<a href="/create">글쓰기</a> `);
+            , `<a href="/create" style="color:red">글쓰기</a> `);
             
         res.send(html);
     });
@@ -49,6 +50,7 @@ app.get('/create', function (req, res){
     const title = '글쓰기';
     const list = template.List(filelist);
     const html = template.HTML(title, list, `
+          <div style="background-color:pink; width:30%;">
           <form action="/create_process" method="post">
             <p><input type="text" name="title" placeholder="title"></p>
             <p>
@@ -58,6 +60,7 @@ app.get('/create', function (req, res){
               <input type="submit">
             </p>
           </form>
+          <div>
         `, '');
     res.send(html);
   });
@@ -91,7 +94,7 @@ app.get('/update/:pageId', function(req, res){
               </p>
             </form>
             `,
-        `<a href="/create">create</a> <a href="/update/${title}">update</a>`,
+        `<a href="/create" >create</a> <a href="/update/${title}">update</a>`,
       );
       res.send(html);
     });
