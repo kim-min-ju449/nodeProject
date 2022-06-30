@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
         const description = '어서오세요~!';
         // 게시글의 목록
         const list = template.List(filelist);
-        const html = template.HTML(title, list, description
+        const html = template.HTML( list, description
             , `<a href="/create" style="color:red">글쓰기</a> `);
             
         res.send(html);
